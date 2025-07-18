@@ -15,7 +15,7 @@ public class ExpenseTracker {
             in = scanner.nextLine();
             switch (in) {
                 default -> {
-                    System.out.println("Unknown command\n");
+                    System.out.println("Unknown command!\n");
                     in = null;
                 }
             }
