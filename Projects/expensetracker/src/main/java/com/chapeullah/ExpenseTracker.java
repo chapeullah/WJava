@@ -20,8 +20,8 @@ public class ExpenseTracker {
 
     @Option(
         names = {"-h", "--help"}, 
-        usageHelp = true, 
-        description = "Show this help message."
+        description = "Show this help message.",
+        usageHelp = true
     )
     private boolean helpRequest;
 

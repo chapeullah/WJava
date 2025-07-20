@@ -1,5 +1,7 @@
 package com.chapeullah.expensetracker;
 
+import com.chapeullah.StorageManager;
+
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
@@ -19,7 +21,7 @@ public class Add implements Runnable {
 
     @Override
     public void run() {
-
+        StorageManager.addExpense(description, amount);
     }
 
 }

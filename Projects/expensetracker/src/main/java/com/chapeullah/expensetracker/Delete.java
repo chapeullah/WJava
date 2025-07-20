@@ -1,5 +1,7 @@
 package com.chapeullah.expensetracker;
 
+import com.chapeullah.StorageManager;
+
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
@@ -12,11 +14,11 @@ import picocli.CommandLine.Option;
 public class Delete implements Runnable {
 
     @Option(names = {"-i", "--id"}, required = true)
-    private String description;
+    private int id;
 
     @Override
     public void run() {
-
+        StorageManager.removeExpense(id);
     }
 
 }

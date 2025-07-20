@@ -12,10 +12,10 @@ public class StorageManager {
 
     private static int id = 1;
     private static final File expensesFile = new File("expenses.json");
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
     private static ArrayList<Expense> expenses;
 
-    public void addExpense(String description, double amount) {
+    public static void addExpense(String description, double amount) {
         try {
             if (expensesFile.exists()) {
                 expenses = objectMapper.readValue(
@@ -35,7 +35,7 @@ public class StorageManager {
         }
     }
 
-    public boolean removeExpense(int id) {
+    public static boolean removeExpense(int id) {
         try {
             if (!expensesFile.exists()) {
                 return false;
@@ -58,7 +58,7 @@ public class StorageManager {
         return true;
     }
 
-    public double getSummary(int month) {
+    public static double getSummary(int month) {
         double summary = 0;
         try {
             expenses = objectMapper.readValue(
@@ -83,7 +83,7 @@ public class StorageManager {
         return summary;
     }
 
-    public ArrayList<Expense> getExpenses() {
+    public static ArrayList<Expense> getExpenses() {
         try {
             expenses = objectMapper.readValue(
                 expensesFile, new TypeReference<>() {}
