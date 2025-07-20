@@ -5,13 +5,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import com.chapeullah.Model.Expense;
+import com.chapeullah.Model.IdHolder;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class StorageManager {
 
-    private static int id = 1;
     private static final File expensesFile = new File("expenses.json");
+    private static final File idFile = new File("lastId.json");
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private static ArrayList<Expense> expenses;
 
@@ -25,7 +27,7 @@ public class StorageManager {
             else {
                 expenses = new ArrayList<>();
             }
-            expenses.add(new Expense(id, description, amount, LocalDate.now()));
+            expenses.add(new Expense(getLastId(), description, amount, LocalDate.now()));
             objectMapper
                 .writerWithDefaultPrettyPrinter()
                 .writeValue(expensesFile, expenses);
@@ -34,6 +36,20 @@ public class StorageManager {
             exception.printStackTrace();
         }
     }
+
+    private static int getLastId() throws Exception {
+        JsonNode jsonNode = objectMapper.readTree(idFile);
+        if (jsonNode != null && jsonNode.has("lastId")) {
+            return jsonNode.get("lastId").asInt();
+        }
+        objectMapper.writeValue(idFile, new IdHolder(1));
+        return 1;
+    }
+
+    private static void saveLastId(int id) throws Exception {
+        objectMapper.writeValue(idFile, id);
+    }
+
 
     public static boolean removeExpense(int id) {
         try {
@@ -94,6 +110,16 @@ public class StorageManager {
             return new ArrayList<>();
         }
         return expenses;
+    }
+
+    public static void clearExpenses() {
+        expenses = new ArrayList<>();
+        try {
+            objectMapper.writeValue(expensesFile, expenses);
+        }
+        catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
 }

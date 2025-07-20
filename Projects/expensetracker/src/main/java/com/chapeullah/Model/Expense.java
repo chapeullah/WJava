@@ -9,6 +9,8 @@ public class Expense {
     private double amount;
     private String date;
 
+    public Expense() {}
+
     public Expense(int id, String description, double amount, LocalDate date) {
         this.id = id;
         this.description = description;
