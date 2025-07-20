@@ -47,7 +47,7 @@ public class StorageManager {
     }
 
     private static void saveLastId(int id) throws Exception {
-        objectMapper.writeValue(idFile, id);
+        objectMapper.writeValue(idFile, new IdHolder(id));
     }
 
 
