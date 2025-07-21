@@ -1,21 +1,16 @@
 [ {
-  "id" : 2,
-  "description" : "Computer",
+  "id" : 7,
+  "description" : "some",
+  "amount" : 1000.0,
+  "date" : "2025-07-21"
+}, {
+  "id" : 8,
+  "description" : "Picocli",
   "amount" : 150000.0,
   "date" : "2025-07-21"
 }, {
-  "id" : 3,
-  "description" : "IPhone",
-  "amount" : 100000.0,
-  "date" : "2025-07-21"
-}, {
-  "id" : 4,
-  "description" : "IPhone",
-  "amount" : 100000.0,
-  "date" : "2025-07-21"
-}, {
-  "id" : 5,
-  "description" : "IPhone",
-  "amount" : 100000.0,
+  "id" : 9,
+  "description" : "Computer",
+  "amount" : 120000.0,
   "date" : "2025-07-21"
 } ]
