@@ -35,7 +35,7 @@ public class ExpenseTracker {
     private boolean versionRequest;
 
     public static void main(String[] args) {
-        int exit = new CommandLine(new ExpenseTracker()).execute("add", "-d=Computer", "-a=150000");
+        int exit = new CommandLine(new ExpenseTracker()).execute(args);
         System.exit(exit);
     }
 

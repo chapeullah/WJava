@@ -27,7 +27,9 @@ public class StorageManager {
             else {
                 expenses = new ArrayList<>();
             }
-            expenses.add(new Expense(getLastId(), description, amount, LocalDate.now()));
+            int lastId = getLastId();
+            expenses.add(new Expense(lastId, description, amount, LocalDate.now()));
+            saveLastId(++lastId);
             objectMapper
                 .writerWithDefaultPrettyPrinter()
                 .writeValue(expensesFile, expenses);
@@ -38,18 +40,21 @@ public class StorageManager {
     }
 
     private static int getLastId() throws Exception {
-        JsonNode jsonNode = objectMapper.readTree(idFile);
-        if (jsonNode != null && jsonNode.has("lastId")) {
-            return jsonNode.get("lastId").asInt();
+        if (!idFile.exists()) {
+            objectMapper.writeValue(idFile, new IdHolder(1));
+            return 1;
         }
-        objectMapper.writeValue(idFile, new IdHolder(1));
-        return 1;
+        JsonNode jsonNode = objectMapper.readTree(idFile);
+        if (jsonNode == null || !jsonNode.has("lastId")) {
+            objectMapper.writeValue(idFile, new IdHolder(1));
+            return 1;
+        }
+        return jsonNode.get("lastId").asInt();
     }
 
     private static void saveLastId(int id) throws Exception {
         objectMapper.writeValue(idFile, new IdHolder(id));
     }
-
 
     public static boolean removeExpense(int id) {
         try {
@@ -116,6 +121,7 @@ public class StorageManager {
         expenses = new ArrayList<>();
         try {
             objectMapper.writeValue(expensesFile, expenses);
+            saveLastId(1);
         }
         catch (Exception exception) {
             exception.printStackTrace();

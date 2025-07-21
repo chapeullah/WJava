@@ -1,11 +1,21 @@
 [ {
-  "id" : 1,
+  "id" : 2,
   "description" : "Computer",
   "amount" : 150000.0,
   "date" : "2025-07-21"
 }, {
-  "id" : 1,
-  "description" : "Computer",
-  "amount" : 150000.0,
+  "id" : 3,
+  "description" : "IPhone",
+  "amount" : 100000.0,
+  "date" : "2025-07-21"
+}, {
+  "id" : 4,
+  "description" : "IPhone",
+  "amount" : 100000.0,
+  "date" : "2025-07-21"
+}, {
+  "id" : 5,
+  "description" : "IPhone",
+  "amount" : 100000.0,
   "date" : "2025-07-21"
 } ]
