@@ -1,4 +1,4 @@
-package JavaCore;
+package JavaCore.JavaFunctionalProgramming;
 
 @FunctionalInterface
 public interface JavaFunctionalInterface {
