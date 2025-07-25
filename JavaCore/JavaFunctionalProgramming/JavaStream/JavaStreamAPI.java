@@ -1,8 +1,10 @@
-package JavaCore.JavaFunctionalProgramming;
+package JavaCore.JavaFunctionalProgramming.JavaStream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+// import java.util.function.Function;
 
 public class JavaStreamAPI {
     public static void main(String[] args) {
@@ -15,8 +17,8 @@ public class JavaStreamAPI {
             new Person("Nastya", Gender.FEMALE)
         );
 
-        // imperative approach
-        System.out.println("\n// imperative approach");
+        // IMPERATIVE
+        System.out.println("\n// IMPERATIVE");
         List<Person> females = new ArrayList<>();
         List<Person> males = new ArrayList<>();
         for (Person person : people) {
@@ -27,12 +29,12 @@ public class JavaStreamAPI {
                 males.add(person);
             }
         }
-        System.out.println("females = " + females);
-        System.out.println("males = " + males);
-        
+        females.forEach(System.out::println);
+        System.out.println();
+        males.forEach(System.out::println);
 
-        // declarative approach
-        System.out.println("\n// declarative approach");
+        // DECLARATIVE
+        System.out.println("\n// DECLARATIVE");
 
         // .forEach(System.out::println) - сразу выводим в консоль
         people.stream()
@@ -40,8 +42,9 @@ public class JavaStreamAPI {
             .forEach(System.out::println);
 
         // .collect(Collectors.toList()) - записываем в List<Person>
+        Predicate<Person> personPredicate = person -> person.gender.equals(Gender.MALE);
         List<Person> femaleList = people.stream()
-            .filter(person -> person.gender.equals(Gender.FEMALE))
+            .filter(personPredicate)
             .collect(Collectors.toList());
         System.out.println();
         femaleList.forEach(System.out::println);
