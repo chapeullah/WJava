@@ -1,4 +1,4 @@
-**/target/
-**/.mvn/
-**/.vscode/
-**/.idea/
+target/
+.mvn/
+.vscode/
+.idea/
