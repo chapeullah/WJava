@@ -1,1 +1,6 @@
-{}
+{
+  "nativeMenus": false,
+  "baseFontSize": 16,
+  "cssTheme": "",
+  "theme": "obsidian"
+}

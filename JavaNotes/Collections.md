@@ -16,3 +16,8 @@
 			  - PriorityQueue
 			  - Deque
 			  - LinkedList
+
+В более старых версиях (для собеса): 
+
+Iterable → Collection → List/Set/Queue
+Map отдельно
