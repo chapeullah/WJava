@@ -1,1 +1,1 @@
-Java Server Pages — используется
+Java Server Pages — используется для того, чтобы в HTML страницу встраивать Java код.
