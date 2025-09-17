@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "БазыДанных/JOIN.md",
+                "file": "Spring/JpaRepository.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "JOIN"
+              "title": "JpaRepository"
             }
           }
         ]
@@ -354,10 +354,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "a588ba23e86cf83f",
+  "active": "06f457c465809898",
   "lastOpenFiles": [
-    "БазыДанных/LIKE.md",
     "БазыДанных/JOIN.md",
+    "БазыДанных/LIKE.md",
     "JDK;JRE;JVM.md",
     "JIT-компилятор.md",
     "БазыДанных/ILIKE.md",
