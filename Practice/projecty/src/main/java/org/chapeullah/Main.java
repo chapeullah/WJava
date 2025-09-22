@@ -1,11 +1,13 @@
 package org.chapeullah;
 
+import org.chapeullah.arrays.TwoSum;
 import org.chapeullah.strings.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println(LongestSubstringWithoutRepeatingCharacters.longestSubstringWithoutRepeatingCharacters("pwwkew"));
+        int[] nums = new int[] {1,2,3,4,5,6};
+        System.out.println(Arrays.toString(TwoSum.twoSum(nums, 11)));
     }
 }
