@@ -1,8 +1,13 @@
 package org.chapeullah;
 
+import org.chapeullah.problems.FindDuplicates;
+import org.chapeullah.problems.RemoveDuplicates;
+import org.chapeullah.problems.SortedSquares;
+
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        int[] nums = new int[] {7,6,4,3,1};
-        System.out.println();
+        System.out.println(Arrays.toString(SortedSquares.sortedSquares(new int[]{-7, -3, 2, 3, 11})));
     }
 }
